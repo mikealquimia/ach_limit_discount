@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ach_limit_discount",
+    'name': "Sales Discount Limit",
     'summary': """
-        Limit discount for crm team""",
+        Sales discount limit based on sales equipment""",
     'description': """
-        Limit discount for crm team
+        Sales discount limit on sales order lines, based on limit assigned to sales team
     """,
-    'author': "ACH",
-    'category': 'Uncategorized',
-    'version': '0.1',
-    'depends': ['base', 'sale', 'sales_team'],
+    'author': "Gt Development Alchemy",
+    'license': 'LGPL-3',
+    'support': 'developmentalchemygx@gmail.com',
+    'category': 'Sales',
+    'version': '1.1',
+    'price': 3.00,
+    'currency': 'USD',
+    'depends': ['base', 
+                'sale',
+                'sales_team',
+                'sale_management'],
     'data': [
+        'data/sale_params.xml',
+        'security/discount_line_sale.xml',
         'views/sale_order_views.xml',
     ],
 

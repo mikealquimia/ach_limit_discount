@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <record model="ir.ui.view" id="ach_crm_team_form">
-          <field name="name">Limit Discount</field>
+          <field name="name">Discount Limit</field>
           <field name="model">crm.team</field>
           <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
           <field name="type">form</field>

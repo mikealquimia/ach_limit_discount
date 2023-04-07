@@ -15,14 +15,13 @@ class SaleOrderLine(models.Model):
             for member in team.member_ids:
                 if member.id == self.env.user.id:
                     count += 1
-                    limit = team.limit_discount
+                    if team.limit_discount > limit:
+                        limit = team.limit_discount
         if count == 0:
-            raise UserError(_('Ested no pertenece a ningun equipo de ventas o canal de ventas, solicite verificar su usario al administrador')) 
-        if count > 1:
-            raise UserError(_('Ested pertenece a mas de un equipo de ventas o canal de ventas, solicite verificar su usuario al administrador'))
+            raise UserError(_('You do not belong to any sales team or sales channel, ask the administrator to verify your user')) 
         for rec in self:
             if rec.discount > limit:
-                raise UserError(_('El equipo de ventas o canal de ventas al que usted pertenece tiene un limite de descuento de:\n %s %\n No es posible asignar el descuento asginado') % limit)
+                raise UserError(_('The sales team or sales channel to which you belong has a discount limit of:\n %s %\n It is not possible to assign the assigned discount') % limit)
         res = super(SaleOrderLine, self)._onchange_discount()
         return res
     
@@ -37,9 +36,14 @@ class SaleOrderLine(models.Model):
                     count += 1
                     limit = team.limit_discount
         if count == 0:
-            raise UserError(_('Ested no pertenece a ningun equipo de ventas o canal de ventas, solicite verificar su usario al administrador')) 
-        if count > 1:
-            raise UserError(_('Ested pertenece a mas de un equipo de ventas o canal de ventas, solicite verificar su usuario al administrador'))
+            raise UserError(_('You do not belong to any sales team or sales channel, ask the administrator to verify your user')) 
         for rec in self:
             if rec.discount > limit:
-                raise UserError(_('El equipo de ventas o canal de ventas al que usted pertenece tiene un limite de descuento de: %s, no es posible asignar el descuento asginado') % limit)
+                raise UserError(_('The sales team or sales channel to which you belong has a discount limit of:\n %s %\n It is not possible to assign the assigned discount') % limit)
+    
+    @api.model
+    def _init_settings(self):
+        config = self.env['res.config.settings'].sudo()
+        config.set_values()
+        config.get_values()
+        return
