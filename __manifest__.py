@@ -16,7 +16,8 @@
     'depends': ['base', 
                 'sale',
                 'sales_team',
-                'sale_management'],
+                'sale_management',
+                'crm'],
     'data': [
         'data/sale_params.xml',
         'security/discount_line_sale.xml',

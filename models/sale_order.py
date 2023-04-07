@@ -15,13 +15,14 @@ class SaleOrderLine(models.Model):
             for member in team.member_ids:
                 if member.id == self.env.user.id:
                     count += 1
-                    if team.limit_discount > limit:
+                    if team.limit_discount > limit or limit == 0:
                         limit = team.limit_discount
         if count == 0:
             raise UserError(_('You do not belong to any sales team or sales channel, ask the administrator to verify your user')) 
         for rec in self:
             if rec.discount > limit:
-                raise UserError(_('The sales team or sales channel to which you belong has a discount limit of:\n %s %\n It is not possible to assign the assigned discount') % limit)
+                note = "The sales team or sales channel to which you belong has a discount limit of:\n" + str(limit) + "% \n It is not possible to assign the assigned discount"
+                raise UserError(str(note))
         res = super(SaleOrderLine, self)._onchange_discount()
         return res
     
@@ -34,16 +35,20 @@ class SaleOrderLine(models.Model):
             for member in team.member_ids:
                 if member.id == self.env.user.id:
                     count += 1
-                    limit = team.limit_discount
+                    if team.limit_discount > limit or limit > 0:
+                        limit = team.limit_discount
         if count == 0:
             raise UserError(_('You do not belong to any sales team or sales channel, ask the administrator to verify your user')) 
         for rec in self:
             if rec.discount > limit:
-                raise UserError(_('The sales team or sales channel to which you belong has a discount limit of:\n %s %\n It is not possible to assign the assigned discount') % limit)
-    
+                note = "The sales team or sales channel to which you belong has a discount limit of:\n" + str(limit) + "% \n It is not possible to assign the assigned discount"
+                raise UserError(str(note))
+            
     @api.model
     def _init_settings(self):
-        config = self.env['res.config.settings'].sudo()
-        config.set_values()
-        config.get_values()
-        return
+        try:
+            config = self.env['res.config.settings'].sudo()
+            config.set_values()
+            config.get_values()
+        except:
+            print('ERROR')
