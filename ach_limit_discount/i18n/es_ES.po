@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ach_limit_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-07 19:26+0000\n"
+"PO-Revision-Date: 2023-04-07 13:31-0600\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: es_GT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: ach_limit_discount
+#: model:ir.model.fields,field_description:ach_limit_discount.field_crm_team_limit_discount
+msgid "Discount limit"
+msgstr "Límite de descuento"
+
+#. module: ach_limit_discount
+#: model:ir.model,name:ach_limit_discount.model_crm_team
+msgid "Sales Channel"
+msgstr "Equipo de Ventas"
+
+#. module: ach_limit_discount
+#: model:ir.model,name:ach_limit_discount.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de ventas"
+
+#. module: ach_limit_discount
+#: code:addons/ach_limit_discount/models/sale_order.py:24
+#: code:addons/ach_limit_discount/models/sale_order.py:42
+#, python-format
+msgid ""
+"The sales team or sales channel to which you belong has a discount limit of:\n"
+" %s %\n"
+" It is not possible to assign the assigned discount"
+msgstr ""
+"El equioi de ventas al que perteneces tiene un límite de descuento de:\n"
+" %s %,\n"
+" No es posible asignar la cantidad que estableciste en la línea de pedido de venta"
+
+#. module: ach_limit_discount
+#: code:addons/ach_limit_discount/models/crm_team.py:15
+#, python-format
+msgid "You cannot assign a discount limit greater than 100%"
+msgstr "No puedes asignar un límite de descuento mayor al 100%"
+
+#. module: ach_limit_discount
+#: code:addons/ach_limit_discount/models/crm_team.py:17
+#, python-format
+msgid "You cannot assign a discount limit less than 0%"
+msgstr "No puedes asignar un límite de descuento menor al 0%"
+
+#. module: ach_limit_discount
+#: code:addons/ach_limit_discount/models/sale_order.py:21
+#: code:addons/ach_limit_discount/models/sale_order.py:39
+#, python-format
+msgid "You do not belong to any sales team or sales channel, ask the administrator to verify your user"
+msgstr "No perteneces a ningún equipo de venta, consulta sobre la asignación de límite de descuento con el administrador de tu ERP Odoo"
+
+#. module: ach_limit_discount
+#: model:ir.model,name:ach_limit_discount.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
