@@ -6,7 +6,7 @@
     'description': """
         Sales discount limit on sales order lines, based on limit assigned to sales team
     """,
-    'author': "ACH, Alchemical Code",
+    'author': "ACH Alchemical Code",
     'license': 'LGPL-3',
     'support': 'developmentalchemygx@gmail.com',
     'category': 'Sales',
