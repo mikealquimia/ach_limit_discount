@@ -23,5 +23,5 @@
         'security/discount_line_sale.xml',
         'views/sale_order_views.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.gif'],
 }
