@@ -10,7 +10,7 @@
     'license': 'LGPL-3',
     'support': 'developmentalchemygx@gmail.com',
     'category': 'Sales',
-    'version': '1.1',
+    'version': '1.2',
     'price': 3.00,
     'currency': 'USD',
     'depends': ['base', 
